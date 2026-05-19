@@ -5,8 +5,8 @@ import { useToast } from '../context/ToastContext';
 import { Lock, Mail, Building } from 'lucide-react';
 
 const Login = () => {
-  const [email, setEmail] = useState('admin@demo-incubator.com'); // Default for demo
-  const [password, setPassword] = useState('admin123'); // Default for demo
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const { error, success } = useToast();
