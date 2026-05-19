@@ -8,8 +8,8 @@ const seed = async () => {
     console.log('✅ Database synced (tables recreated)');
 
     // ── Admin ──
-    await Admin.create({ name: 'SJHIF Admin', email: 'admin@sjhif.in', password: 'admin123' });
-    console.log('✅ Admin created (admin@sjhif.in / admin123)');
+    await Admin.create({ name: 'Demo Admin', email: 'admin@demo-incubator.com', password: 'admin123' });
+    console.log('✅ Admin created (admin@demo-incubator.com / admin123)');
 
     // ── Settings ──
     await Setting.create({ key: 'monthly_seat_rate', value: '5000', description: 'Monthly rate per seat in INR' });
@@ -120,7 +120,7 @@ const seed = async () => {
     console.log('✅ Sample support tickets created');
 
     console.log('\n🎉 Seed completed successfully!');
-    console.log('   Admin login: admin@sjhif.in / admin123');
+    console.log('   Admin login: admin@demo-incubator.com / admin123');
     process.exit(0);
   } catch (error) {
     console.error('❌ Seed failed:', error);

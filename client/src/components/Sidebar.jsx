@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, Building2, CreditCard, LifeBuoy, FileText } from 'lucide-react';
+import { LayoutDashboard, Users, Building2, CreditCard, LifeBuoy, FileText, Building } from 'lucide-react';
 
 const navItems = [
   { name: 'Dashboard', path: '/admin', icon: LayoutDashboard },
@@ -15,7 +15,8 @@ const Sidebar = () => {
   return (
     <div className="w-64 bg-primary text-white flex flex-col shadow-xl z-20 h-full">
       <div className="p-6 flex justify-center items-center border-b border-primary-light bg-primary">
-         <img src="https://www.sjhif.in/wp-content/uploads/2019/07/New-SJHIF-logo-July19.png" alt="SJHIF" className="h-12 bg-white p-2 rounded shadow-sm" />
+         <Building className="h-8 w-8 text-white mr-2" />
+         <span className="font-bold text-white text-lg">Demo Incubator</span>
       </div>
       
       <div className="flex-1 overflow-y-auto py-6">
@@ -41,7 +42,7 @@ const Sidebar = () => {
       </div>
       
       <div className="p-4 border-t border-primary-light text-xs text-center text-gray-400">
-        SJRI Incubation System<br/>v1.0.0
+        Demo Incubation System<br/>v1.0.0
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 {
-  "name": "sjri-incubation-server",
+  "name": "demo-incubation-server",
   "version": "1.0.0",
-  "description": "Backend API for SJRI Incubation Management System",
+  "description": "Backend API for Demo Incubation Management System",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

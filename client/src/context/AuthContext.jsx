@@ -6,15 +6,15 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [admin, setAdmin] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem('sjhif_token') || null);
+  const [token, setToken] = useState(localStorage.getItem('demo_erp_token') || null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (token) {
-      localStorage.setItem('sjhif_token', token);
+      localStorage.setItem('demo_erp_token', token);
       verifyToken(token);
     } else {
-      localStorage.removeItem('sjhif_token');
+      localStorage.removeItem('demo_erp_token');
       setAdmin(null);
       setLoading(false);
     }

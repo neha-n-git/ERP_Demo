@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
-import { Lock, Mail } from 'lucide-react';
+import { Lock, Mail, Building } from 'lucide-react';
 
 const Login = () => {
-  const [email, setEmail] = useState('admin@sjhif.in'); // Default for demo
+  const [email, setEmail] = useState('admin@demo-incubator.com'); // Default for demo
   const [password, setPassword] = useState('admin123'); // Default for demo
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -41,7 +41,7 @@ const Login = () => {
     <div className="min-h-screen bg-secondary flex items-center justify-center p-4">
       <div className="card max-w-md w-full p-8 shadow-xl">
         <div className="text-center mb-8">
-          <img src="https://www.sjhif.in/wp-content/uploads/2019/07/New-SJHIF-logo-July19.png" alt="SJHIF Logo" className="h-16 mx-auto mb-6" />
+          <Building className="h-16 w-16 mx-auto mb-4 text-primary" />
           <h2 className="text-2xl font-bold text-primary tracking-tight">Admin Portal</h2>
           <p className="text-gray-500 mt-2 text-sm">Sign in to manage the incubation centre</p>
         </div>

@@ -1,7 +1,7 @@
 {
-  "name": "sjri-incubation-system",
+  "name": "demo-incubation-system",
   "version": "1.0.0",
-  "description": "SJRI Incubation Management System for St. John's Health Innovation Foundation",
+  "description": "Demo Incubation Management System",
   "private": true,
   "scripts": {
     "install-all": "npm install && npm install --prefix server && npm install --prefix client",
