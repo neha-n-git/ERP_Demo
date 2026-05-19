@@ -1,0 +1,10 @@
+[build]
+  base = "client"
+  command = "npm run build"
+  publish = "dist"
+
+# This ensures React Router works properly on page refreshes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
