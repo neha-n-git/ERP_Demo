@@ -1,4 +1,4 @@
-# Demo Incubation Management System
+# Incubation Management System
 
 A full-stack, enterprise-grade ERP web application designed as a demonstration for a startup incubator or coworking space.
 
