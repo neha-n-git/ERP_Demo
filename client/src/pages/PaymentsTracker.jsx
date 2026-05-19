@@ -20,8 +20,8 @@ const PaymentsTracker = () => {
     setLoading(true);
     try {
       const [payRes, sumRes] = await Promise.all([
-        fetch(`/api/payments?billing_month=${monthFilter}`, { headers: { Authorization: `Bearer ${token}` } }),
-        fetch(`/api/payments/summary?month=${monthFilter}`, { headers: { Authorization: `Bearer ${token}` } })
+        fetch((import.meta.env.VITE_API_URL || '') + `/api/payments?billing_month=${monthFilter}`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch((import.meta.env.VITE_API_URL || '') + `/api/payments/summary?month=${monthFilter}`, { headers: { Authorization: `Bearer ${token}` } })
       ]);
       
       if (payRes.ok && sumRes.ok) {
@@ -42,7 +42,7 @@ const PaymentsTracker = () => {
   const handleRemind = async (paymentId) => {
     setRemindingId(paymentId);
     try {
-      const res = await fetch(`/api/payments/${paymentId}/remind`, {
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + `/api/payments/${paymentId}/remind`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -61,7 +61,7 @@ const PaymentsTracker = () => {
   const handleGenerateInvoices = async () => {
     info(`Generating invoices for ${monthFilter}...`);
     try {
-      const res = await fetch('/api/payments/generate', {
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/payments/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ billing_month: monthFilter })

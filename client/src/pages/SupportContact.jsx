@@ -19,7 +19,7 @@ const SupportContact = () => {
 
   const fetchTickets = async () => {
     try {
-      const res = await fetch('/api/support/tickets', { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/support/tickets', { headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) {
         const data = await res.json();
         setTickets(data.tickets);
@@ -35,7 +35,7 @@ const SupportContact = () => {
     e.preventDefault();
     setSendingMentoring(true);
     try {
-      const res = await fetch('/api/support/mentoring', {
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/support/mentoring', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(mentoringForm)

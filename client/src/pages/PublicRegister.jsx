@@ -42,7 +42,7 @@ const PublicRegister = () => {
     if (file) data.append('pitch_deck', file);
 
     try {
-      const res = await fetch('/api/public/register', { method: 'POST', body: data });
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/public/register', { method: 'POST', body: data });
       const result = await res.json();
       
       if (res.ok) {

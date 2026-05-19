@@ -18,9 +18,9 @@ const ResourceTracker = () => {
   const fetchResources = async () => {
     try {
       const [seatRes, roomRes, bookingRes] = await Promise.all([
-        fetch('/api/resources/seats', { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('/api/resources/boardrooms', { headers: { Authorization: `Bearer ${token}` } }),
-        fetch(`/api/resources/bookings?date=${new Date().toISOString().split('T')[0]}`, { headers: { Authorization: `Bearer ${token}` } })
+        fetch((import.meta.env.VITE_API_URL || '') + '/api/resources/seats', { headers: { Authorization: `Bearer ${token}` } }),
+        fetch((import.meta.env.VITE_API_URL || '') + '/api/resources/boardrooms', { headers: { Authorization: `Bearer ${token}` } }),
+        fetch((import.meta.env.VITE_API_URL || '') + `/api/resources/bookings?date=${new Date().toISOString().split('T')[0]}`, { headers: { Authorization: `Bearer ${token}` } })
       ]);
       
       if (seatRes.ok && roomRes.ok && bookingRes.ok) {

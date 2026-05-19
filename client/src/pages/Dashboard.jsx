@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch('/api/startups/stats', { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/startups/stats', { headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) {
         const data = await res.json();
         setStats(data);
