@@ -19,7 +19,8 @@ const PeopleRegistry = () => {
   const fetchMembers = async () => {
     setLoading(true);
     try {
-      const url = new URL('/api/members', window.location.origin);
+      const baseUrl = import.meta.env.VITE_API_URL || window.location.origin;
+      const url = new URL('/api/members', baseUrl);
       if (searchTerm) url.searchParams.append('search', searchTerm);
       if (filterHRPending) url.searchParams.append('hr_pending', 'true');
       if (filterITPending) url.searchParams.append('it_pending', 'true');
@@ -50,7 +51,7 @@ const PeopleRegistry = () => {
           <p className="text-sm text-gray-500 mt-1">HR and IT tracking roster for all incubated individuals</p>
         </div>
         <div className="flex space-x-3">
-          <a href={`http://localhost:5000/api/members/export?token=${token}`} target="_blank" rel="noreferrer" className="btn-secondary flex items-center">
+          <a href={`${import.meta.env.VITE_API_URL || ''}/api/members/export?token=${token}`} target="_blank" rel="noreferrer" className="btn-secondary flex items-center">
             <Download className="w-4 h-4 mr-2" /> CSV Export
           </a>
           <button className="btn-primary flex items-center"><UserPlus className="w-4 h-4 mr-2" /> Add Member</button>

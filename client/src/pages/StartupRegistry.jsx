@@ -19,7 +19,8 @@ const StartupRegistry = () => {
   const fetchStartups = async () => {
     setLoading(true);
     try {
-      const url = new URL('/api/startups', window.location.origin);
+      const baseUrl = import.meta.env.VITE_API_URL || window.location.origin;
+      const url = new URL('/api/startups', baseUrl);
       if (searchTerm) url.searchParams.append('search', searchTerm);
       if (statusFilter) url.searchParams.append('status', statusFilter);
       

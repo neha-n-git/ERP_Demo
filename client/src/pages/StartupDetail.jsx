@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
-import { ArrowLeft, Edit, Mail, Phone, ExternalLink, Calendar, MapPin, Building, CheckCircle, Clock, Save, FileText } from 'lucide-react';
+import { ArrowLeft, Edit, Mail, Phone, ExternalLink, Calendar, MapPin, Building, CheckCircle, Clock, Save, FileText, User } from 'lucide-react';
 
 const StartupDetail = () => {
   const { id } = useParams();
@@ -21,7 +21,7 @@ const StartupDetail = () => {
 
   const fetchStartup = async () => {
     try {
-      const res = await fetch(`/api/startups/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + `/api/startups/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) {
         const data = await res.json();
         setStartup(data.startup);
@@ -39,7 +39,7 @@ const StartupDetail = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`/api/startups/${id}`, {
+      const res = await fetch((import.meta.env.VITE_API_URL || '') + `/api/startups/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(editForm),
@@ -168,7 +168,7 @@ const StartupDetail = () => {
             <div className="card p-6 bg-primary text-white">
               <h3 className="text-lg font-bold mb-2 flex items-center"><FileText className="w-5 h-5 mr-2 text-primary-light" /> Documents</h3>
               <p className="text-sm text-blue-100 mb-4">Pitch deck / Company profile submitted during registration.</p>
-              <a href={`http://localhost:5000/uploads/pitch_decks/${startup.pitch_deck_path}`} target="_blank" rel="noreferrer" className="btn-accent w-full flex justify-center py-2.5 bg-white text-primary hover:bg-gray-100 shadow-none border-0">View Pitch Deck (PDF)</a>
+              <a href={`${import.meta.env.VITE_API_URL || ''}/uploads/pitch_decks/${startup.pitch_deck_path}`} target="_blank" rel="noreferrer" className="btn-accent w-full flex justify-center py-2.5 bg-white text-primary hover:bg-gray-100 shadow-none border-0">View Pitch Deck (PDF)</a>
             </div>
           )}
         </div>
